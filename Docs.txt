@@ -1,0 +1,4 @@
+
+1. Firebase Info
+- project name: Alphamanda
+- project ID: alphamanda-lyb342
