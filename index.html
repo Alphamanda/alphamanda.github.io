@@ -13,23 +13,26 @@
   firebase.initializeApp(config);
 </script>
 
+<script src="saveToFirebase.js"></script> 
+  
+
 <script>
+  alert('Hello!');
+  function saveToFirebase(email) {
+      var emailObject = {
+          email: email
+      };
 
-function saveToFirebase(email) {
-    var emailObject = {
-        email: email
-    };
+      firebase.database().ref('subscription-entries').push().set(emailObject)
+          .then(function(snapshot) {
+              success(); // some success method
+          }, function(error) {
+              console.log('error' + error);
+              error(); // some error method
+          });
+  }
 
-    firebase.database().ref('subscription-entries').push().set(emailObject)
-        .then(function(snapshot) {
-            success(); // some success method
-        }, function(error) {
-            console.log('error' + error);
-            error(); // some error method
-        });
-}
-
-saveToFirebase(email);
+  saveToFirebase(email);
 
 </script>
 
